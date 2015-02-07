@@ -1,4 +1,4 @@
-MongoCamp
+MongoCamp for php
 =========
 
-Simple MongoDB ODM Tools (based on official driver)
+Simple MongoDB ORM Tools (based on MongoDB PHP driver)
