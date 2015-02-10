@@ -74,11 +74,9 @@ class QueryBuilder implements IMongoArray{
     }
 
     public function __call($methodName, $arguments){
-//        $methodName = '$'. $methodName;
-//        var_dump(QueryCommand::$methodName);
-//        var_dump($methodName, $arguments);
-        if(isset(QueryCommand::$methodName) && !empty($arguments)){
-            $this->addCondition(QueryCommand::$methodName, $arguments[0]);
+        // query command 
+        if(isset(QueryCommand::$$methodName) && !empty($arguments)){
+            $this->addCondition(QueryCommand::$$methodName, $arguments[0]);
         }
 
         return $this;
