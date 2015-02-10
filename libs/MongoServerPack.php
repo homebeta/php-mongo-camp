@@ -77,8 +77,8 @@ class MongoServerPack{
      */
     public function getServer(){
         if(is_null($this->_mongoClient)){
-            $this->_mongoClient = is_null($this->_mongoOptions) ? new \MongoClient($this->_connectionString) :
-                new \MongoClient($this->_connectionString, $this->_mongoOptions);
+            $this->_mongoClient = is_null($this->_mongoOptions) ? new \MongoClient($this->_connectionString) : new \MongoClient($this->_connectionString,
+                                                                                                                                $this->_mongoOptions);
         }
 
         return $this->_mongoClient;

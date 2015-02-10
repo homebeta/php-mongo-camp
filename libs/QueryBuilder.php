@@ -29,6 +29,10 @@ class QueryBuilder implements IMongoArray{
         $this->QueryField = $fieldName;
     }
 
+    public static function __callStatic($methodName, $arguments){
+
+    }
+
     public function toArray(){
         return $this->QueryList;
     }
@@ -50,8 +54,9 @@ class QueryBuilder implements IMongoArray{
             $this->QueryList[$key] = array();
         }
 
-        $newQuery = array($command => $value);
-        array_push($this->QueryList[$key], $newQuery);
+        $this->QueryList[$key][$command] = $value;
+        //        $newQuery = array($command => $value);
+        //        array_push($this->QueryList[$key], $newQuery);
     }
 
     public function andWith($fieldName){
@@ -73,17 +78,13 @@ class QueryBuilder implements IMongoArray{
         return $this;
     }
 
-    public function __call($methodName, $arguments){
-        // query command 
-        if(isset(QueryCommand::$$methodName) && !empty($arguments)){
-            $this->addCondition(QueryCommand::$$methodName, $arguments[0]);
+    public function __call($cmdName, $arguments){
+        // query command
+        if(isset(QueryCommand::$$cmdName) && !empty($arguments)){
+            $this->addCondition(QueryCommand::$$cmdName, $arguments[0]);
         }
 
         return $this;
-    }
-
-    public static function __callStatic($methodName, $arguments){
-
     }
 
 

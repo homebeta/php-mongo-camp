@@ -14,7 +14,7 @@ namespace MongoCamp;
  *
  * @package MongoCamp
  */
-final class Query{
+class Query{
 
     public static function in($fieldName, array $values){
         return array($fieldName => array(QueryCommand::$in => $values));
@@ -31,8 +31,6 @@ final class Query{
     public static function eq($fieldName, $value){
         return array($fieldName => $value);
     }
-
-
 
 
 }

@@ -14,7 +14,7 @@ namespace MongoCamp;
  *
  * @package MongoCamp
  */
-interface IMongoArray {
+interface IMongoArray{
 
     public function toArray();
 }

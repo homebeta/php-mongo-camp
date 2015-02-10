@@ -17,7 +17,7 @@ namespace MongoCamp;
 final class MongoHelper{
 
     public static function findOne(MongoServerPack $mongoServer, $collectionName){
-        
+
     }
 
     //public static findOne<TEntityClass>(MongoServerPack mongoServer, string collectionName, object primaryKeyOrIMongoQuery){

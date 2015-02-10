@@ -39,6 +39,6 @@ class PrimaryKey{
             return trim(com_create_guid(), '{}');
         }
 
-        return strtoupper(md5(uniqid(__FILE__, true). mt_rand()));
+        return strtoupper(md5(uniqid(__FILE__, TRUE) . mt_rand()));
     }
 }

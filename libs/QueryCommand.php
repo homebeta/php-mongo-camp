@@ -14,53 +14,80 @@ namespace MongoCamp;
  *
  * @package MongoCamp
  */
-class QueryCommand{
+final class QueryCommand{
 
     /**
-     * @var string Equal
+     * @var string Equal query
      */
-    static $eq =  '$eq';
+    static $eq = '$eq';
     /**
-     * @var string Greater Than
+     * @var string Not equal query
+     */
+    static $ne = '$ne';
+    /**
+     * @var string Greater than query
      */
     static $gt = '$gt';
     /**
-     * @var string Greater Than or Equal
+     * @var string Greater than or equal query
      */
     static $gte = '$gte';
     /**
-     * @var string Less Than or Equal
+     * @var string Less than or equal query
      */
     static $lt = '$lt';
     /**
-     * @var string Less Than or Equal
+     * @var string Less than or equal query
      */
     static $lte = '$lte';
     /**
-     * @var string in query
+     * @var string In query
      */
     static $in = '$in';
     /**
-     * @var string where query
+     * @var string Not in query
+     */
+    static $nin = '$nin';
+    /**
+     * @var string Where javascript function query
      */
     static $where = '$where';
     /**
-     * @var string or query
+     * @var string Or query
      */
     static $or = '$or';
     /**
-     * @var string and query
+     * @var string And query
      */
     static $and = '$and';
     /**
-     * @var string elemMatch query
+     * @var string Element value modulo query
+     */
+    static $mod = '$mod';
+    /**
+     * @var string Element exists or not exists query
+     */
+    static $exists = '$exists';
+    /**
+     * @var string Element value type query
+     */
+    static $type = '$type';
+    /**
+     * @var string Not query
+     */
+    static $not = '$not';
+
+    /**
+     * $var string Array element all query
+     */
+    static $all = '$all';
+    /**
+     * @var string Array element match query
      */
     static $elemMatch = '$elemMatch';
-
-//    static $inc = '$inc';
-    //
-    //    static $set = '$set';
-    //
-//    static $unset = '$unset';
+    /**
+     * @var string Array element size query
+     */
+    static $size = '$size';
 
 }
