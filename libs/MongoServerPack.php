@@ -33,7 +33,7 @@ class MongoServerPack{
         $errorArgv = array();
 
         if(empty($dbName)){
-            array_push($errorArgv, '$dbName is emtpy');
+            array_push($errorArgv, '$dbName is empty');
         }
         if(empty($connectionString)){
             array_push($errorArgv, '$connectionString is empty');
@@ -77,11 +77,18 @@ class MongoServerPack{
      */
     public function getServer(){
         if(is_null($this->_mongoClient)){
-            $this->_mongoClient = is_null($this->_mongoOptions) ? new \MongoClient($this->_connectionString) : new \MongoClient($this->_connectionString,
-                                                                                                                                $this->_mongoOptions);
+            $this->initServer();
         }
 
         return $this->_mongoClient;
+    }
+
+    private function initServer(){
+        if(is_null($this->_mongoOptions)){
+            $this->_mongoClient =  new \MongoClient($this->_connectionString);
+        }else{
+            $this->_mongoClient = new \MongoClient($this->_connectionString, $this->_mongoOptions);
+        }
     }
 
     /**

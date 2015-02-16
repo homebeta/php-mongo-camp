@@ -15,7 +15,6 @@ namespace MongoCamp;
  * @package MongoCamp
  */
 class QueryBuilder implements IMongoArray{
-
     protected $QueryField;
     protected $QueryList;
     protected $SubQueryKey = '';
@@ -55,26 +54,21 @@ class QueryBuilder implements IMongoArray{
         }
 
         $this->QueryList[$key][$command] = $value;
-        //        $newQuery = array($command => $value);
-        //        array_push($this->QueryList[$key], $newQuery);
     }
 
     public function andWith($fieldName){
         $this->setQueryField($fieldName);
-
         return $this;
     }
 
     public function orWith($fieldName){
         $this->SubQueryKey = QueryCommand::$or;
         $this->setQueryField($fieldName);
-
         return $this;
     }
 
     public function orEnd(){
         $this->SubQueryKey = NULL;
-
         return $this;
     }
 
@@ -83,7 +77,6 @@ class QueryBuilder implements IMongoArray{
         if(isset(QueryCommand::$$cmdName) && !empty($arguments)){
             $this->addCondition(QueryCommand::$$cmdName, $arguments[0]);
         }
-
         return $this;
     }
 

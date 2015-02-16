@@ -16,5 +16,9 @@ namespace MongoCamp;
  */
 interface IMongoArray{
 
+    /**
+     * get mongo array
+     * @return array
+     */
     public function toArray();
 }
